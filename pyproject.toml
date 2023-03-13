@@ -1,18 +1,28 @@
-[tool.poetry]
+# https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#declaring-project-metadata
+[project]
 name = "minipackage"
-version = "0.0.2"
 description = "A minimal python package"
-authors = ["Scott Henderson <scottyhq@gmail.com>"]
-license = "MIT"
+authors = [{ name="Scott Henderson", email="author@example.com" }]
+license = {text = "MIT License"}
 readme = "README.md"
+keywords = ["Python"]
+# Use setuptools_scm for automatic version tags
+dynamic = ["version"]
+requires-python = ">=3.8"
+dependencies = [
+    "xarray >= 2022.03.0",
+    ]
+
+[project.urls]
 homepage = "https://github.com/scottyhq/minipackage"
 repository = "https://github.com/scottyhq/minipackage"
-keywords = ["Python"]
-
-[tool.poetry.dependencies]
-python = "^3.10"
-xarray = ">=2022.03.0"
 
 [build-system]
-requires = ["setuptools", "poetry-core>=1.0.8"]
-build-backend = "poetry.core.masonry.api"
+requires = [
+    "setuptools >= 66",
+    "setuptools_scm[toml]>=6.2",
+]
+build-backend = 'setuptools.build_meta'
+
+[tool.setuptools_scm]
+fallback_version = "unknown"
