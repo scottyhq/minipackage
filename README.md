@@ -11,6 +11,10 @@ NOTE: if you need a fresh virtual environment: `conda create -n minitest python=
 ## Use
 ```python
 import minipackage
+
+from importlib.metadata import version
+version('minipackage')
+
 minipackage.myfunction()
 # 'hello'
 ```
